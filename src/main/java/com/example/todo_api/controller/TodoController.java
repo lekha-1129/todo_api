@@ -20,11 +20,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 // http://localhost:8080/todos
 @RequestMapping("/todos")
 public class TodoController {
-    private TodoService todoSer;
-    public TodoController(TodoService todoser)
-    {
-        this.todoSer=todoser;
-    }
+    public TodoService todoSer;
 
     // http://localhost:8080/todos/createTodo
     @PostMapping("/createTodo")
@@ -37,20 +33,6 @@ public class TodoController {
     public List<TodoModel> getAllTodo()
     {
         return todoSer.getAllTodo();
-    }
-
-    @PutMapping("/updateTodo/{id}")
-    public TodoModel updateTodo(@PathVariable Long id,@RequestBody TodoModel task)
-    {
-        return todoSer.updateTodo(id, task);
-    }
-
-    @DeleteMapping("/deleteTodo/{id}")
-    public String deleteTodo(@PathVariable Long id)
-    {
-        todoSer.deleteTodo(id);
-        return "ur task has been deleted";
-
     }
 
 }

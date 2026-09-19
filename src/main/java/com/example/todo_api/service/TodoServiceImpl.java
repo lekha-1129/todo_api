@@ -25,21 +25,6 @@ public class TodoServiceImpl implements TodoService{
         return TodoRepo.findAll();
     }
     
-    @Override 
-    public TodoModel updateTodo(Long id, TodoModel task)
-    {
-        TodoModel exTodo = TodoRepo.findById(id).orElse(null);
-        if(exTodo == null)
-            return null;
-    
-        exTodo.setTask(task.getTask());
-
-        return TodoRepo.save(exTodo);
-    }
-
-    public void deleteTodo(Long id)
-    {
-        TodoRepo.deleteById(id);
-    }
+   
 
 }
